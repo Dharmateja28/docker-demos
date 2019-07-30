@@ -42,10 +42,24 @@
 ### frontend_react_app
     Using volumes where we use references to files instead of directly copying them.
 
-    First to build image use below command
+    Without docker compose
+        First to build image use below command
 
-        sudo docker build -t dharmatejat/frontend-react-app:latest -f Dockerfile.dev .
+            sudo docker build -t dharmatejat/frontend-react-app:latest -f Dockerfile.dev .
 
-    To start container that references to given files instead of copying them
+        To start container that references to given files instead of copying them
 
-        sudo docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app dharmatejat/frtend-react-app
+            sudo docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app dharmatejat/frtend-react-app
+
+    Using docker compose
+        To build and run docker containers use below command
+
+            docker-compose up --build
+
+        To just run docker containers use below command
+
+            docker-compose up
+
+        To stop all the containers use below command
+
+            docker-compose down

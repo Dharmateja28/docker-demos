@@ -1,0 +1,15 @@
+# Docker compose version to use
+version: '3'
+
+# Different docker containers we need to run we define here in services
+
+services:
+  frontend-react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
