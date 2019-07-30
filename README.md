@@ -25,19 +25,27 @@
         sudo docker run -p 8080:8080 dharmatejat/node-test
 
 ### visits
-    Count visits to website here we need both redis and node-web(can be multiple) which will on different dockers but still they should interact with each here we start using docker compose(docker-compose.yml)
+    Count visits to website here we need both redis and node-web(can be multiple) which will on different dockers but still they should interact with each here we start using docker compose(docker-compose.yml).Docker compose will create the internal network between different dockers we run.
 
-    To build and run docker containers
+    To build and run docker containers use below command
 
-    docker-compose up --build
+        docker-compose up --build
 
-    To just run docker containers
+    To just run docker containers use below command
 
-    docker-compose up
+        docker-compose up
 
-    To stop all the containers
+    To stop all the containers use below command
 
-    docker-compose down
+        docker-compose down
 
 ### frontend_react_app
     Using volumes where we use references to files instead of directly copying them.
+
+    First to build image use below command
+
+        sudo docker build -t dharmatejat/frontend-react-app:latest -f Dockerfile.dev .
+
+    To start container that references to given files instead of copying them
+
+        sudo docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app dharmatejat/frtend-react-app
