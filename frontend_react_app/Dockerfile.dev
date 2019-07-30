@@ -12,6 +12,7 @@ COPY ./package.json .
 RUN npm install
 
 # Copying local files to docker filesystem
+# we can remove this when we use volumes but in future if we use docker file to create production docker we do need this so its better to have it.
 COPY . .
 
 # command that runs when we create container
